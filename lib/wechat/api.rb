@@ -150,6 +150,14 @@ module Wechat
       post 'message/custom/send', message.to_json, content_type: :json
     end
 
+    def get_template_id(template_id_short)
+      post "template/api_add_template", JSON.generate(template_id_short: template_id_short)
+    end
+
+    def get_all_private_template
+      post "template/get_all_private_template", nil
+    end
+
     def template_message_send(message)
       post 'message/template/send', message.to_json, content_type: :json
     end
